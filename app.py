@@ -21,12 +21,27 @@ if not API_KEY:
 gmaps = googlemaps.Client(key=API_KEY)
 
 
+def get_default_image(place_type: str) -> str:
+    default_images = {
+        "restaurant": "/static/restaurant.jpg",
+        "cafe": "/static/cafe.jpg",
+        "pharmacy": "/static/pharmacy.jpg",
+        "hospital": "/static/hospital.jpg",
+        "bank": "/static/bank.jpg",
+        "school": "/static/school.png",
+        "store": "/static/store.jpg",
+    }
+    return default_images.get(place_type, "/static/imagen.jpg")
+
+
 def get_places(lat: float, lng: float, radius: int = 1000, place_type: str = "restaurant"):
     location = (lat, lng)
 
     results_list = []
     max_requests = 3
     request_count = 0
+
+    default_image = get_default_image(place_type)
 
     response = gmaps.places_nearby(
         location=location,
@@ -39,24 +54,43 @@ def get_places(lat: float, lng: float, radius: int = 1000, place_type: str = "re
             geometry = place.get("geometry", {}).get("location", {})
             place_id = place.get("place_id")
             photos = place.get("photos", [])
-            photo_url = "/static/imagen.jpg" 
+
+            # Imagen por defecto según el tipo seleccionado
+            photo_url = default_image
+
+            # Si Google devuelve foto, usar la foto real
             if photos:
                 photo_ref = photos[0].get("photo_reference")
-                photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference={photo_ref}&key={API_KEY}"
+                if photo_ref:
+                    photo_url = (
+                        f"https://maps.googleapis.com/maps/api/place/photo"
+                        f"?maxwidth=400&photo_reference={photo_ref}&key={API_KEY}"
+                    )
+
             horario_hoy = "Horario no disponible"
+
             try:
-                details = gmaps.place(place_id=place_id, fields=["opening_hours"], language="es")
+                details = gmaps.place(
+                    place_id=place_id,
+                    fields=["opening_hours"],
+                    language="es"
+                )
                 opening_hours = details.get("result", {}).get("opening_hours")
+
                 if opening_hours and "weekday_text" in opening_hours:
                     weekday_text = opening_hours.get("weekday_text", [])
                     dia_actual = datetime.datetime.today().weekday()
-                    horario_crudo = weekday_text[dia_actual]
-                    if ":" in horario_crudo:
-                        horario_hoy = horario_crudo.split(":", 1)[1].strip()
-                    else:
-                        horario_hoy = horario_crudo
+
+                    if dia_actual < len(weekday_text):
+                        horario_crudo = weekday_text[dia_actual]
+                        if ":" in horario_crudo:
+                            horario_hoy = horario_crudo.split(":", 1)[1].strip()
+                        else:
+                            horario_hoy = horario_crudo
+
             except Exception as e:
                 print(f"Error con el horario de {place.get('name')}: {type(e).__name__} - {e}")
+
             results_list.append({
                 "name": place.get("name"),
                 "address": place.get("vicinity"),
