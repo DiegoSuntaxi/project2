@@ -24,8 +24,8 @@ gmaps = googlemaps.Client(key=API_KEY)
 def get_default_image(place_type: str) -> str:
     default_images = {
         "restaurant": "/static/restaurant.jpg",
-        "cafe": "/static/cafe.jpg",
-        "pharmacy": "/static/pharmacy.jpg",
+        "cafe": "/static/cafe.jfif",
+        "pharmacy": "/static/pharmacy.jfif",
         "hospital": "/static/hospital.jpg",
         "bank": "/static/bank.jpg",
         "school": "/static/school.png",
