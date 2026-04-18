@@ -37,6 +37,13 @@ def get_places(lat: float, lng: float, radius: int = 1000, place_type: str = "re
         for place in response.get("results", []):
             geometry = place.get("geometry", {}).get("location", {})
 
+            photos = place.get("photos", [])
+            photo_url = "/static/imagen.jpg" 
+            
+            if photos:
+                photo_ref = photos[0].get("photo_reference")
+                photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference={photo_ref}&key={API_KEY}"
+
             results_list.append({
                 "name": place.get("name"),
                 "address": place.get("vicinity"),
@@ -44,7 +51,8 @@ def get_places(lat: float, lng: float, radius: int = 1000, place_type: str = "re
                 "users": place.get("user_ratings_total"),
                 "price_level": place.get("price_level"),
                 "lat": geometry.get("lat"),
-                "lng": geometry.get("lng")
+                "lng": geometry.get("lng"),
+                "photo_url": photo_url
             })
 
         request_count += 1

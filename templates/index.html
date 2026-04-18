@@ -136,7 +136,7 @@
                 data.forEach(r => {
                     container.innerHTML += `
                         <div class="card">
-                            <img src="/static/imagen.jpg" alt="Place image" class="card-image" loading="lazy">
+                            <img src="${r.photo_url}" alt="Place image" class="card-image" loading="lazy">
                             <div class="card-body">
                                 <h3>${r.name || "Sin nombre"}</h3>
                                 <p>${r.address || ""}</p>
