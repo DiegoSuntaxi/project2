@@ -5,34 +5,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buscar lugares en mapa</title>
-    <link rel="stylesheet" href="/static/styles.css?v=2" />
+    <link rel="stylesheet" href="/static/styles.css?v=3" />
 </head>
 
 <body>
     <div class="page">
-        <div class="hero">
+        <header class="hero">
+            <div class="hero-badge">Google Places</div>
             <h1>📍 Buscar lugares desde el mapa</h1>
-            <p>Haz clic en el mapa para elegir la ubicación.</p>
-        </div>
+            <p class="hero-text">
+                Haz clic en el mapa para seleccionar una ubicación y luego elige el tipo de lugar que deseas consultar.
+            </p>
+        </header>
 
-        <div class="map-section">
+        <section class="map-section">
             <div id="map"></div>
-        </div>
+        </section>
 
-        <div class="form-box">
+        <section class="form-box">
+            <div class="panel-header">
+                <h2>Parámetros de búsqueda</h2>
+                <p>Selecciona el radio y el tipo de lugar para consultar resultados cercanos.</p>
+            </div>
+
             <div class="selected-data">
-                <p><strong>Latitud seleccionada:</strong> <span id="selected-lat">No seleccionada</span></p>
-                <p><strong>Longitud seleccionada:</strong> <span id="selected-lng">No seleccionada</span></p>
+                <div class="info-card">
+                    <span class="info-label">Latitud seleccionada</span>
+                    <span class="info-value" id="selected-lat">No seleccionada</span>
+                </div>
+
+                <div class="info-card">
+                    <span class="info-label">Longitud seleccionada</span>
+                    <span class="info-value" id="selected-lng">No seleccionada</span>
+                </div>
             </div>
 
             <div class="controls-row">
                 <div class="control-group">
-                    <label for="radius">Radio (metros):</label>
-                    <input type="number" id="radius" value="1000" />
+                    <label for="radius">Radio (metros)</label>
+                    <input type="number" id="radius" value="1000" min="1" />
                 </div>
 
                 <div class="control-group">
-                    <label for="type">Tipo:</label>
+                    <label for="type">Tipo de lugar</label>
                     <select id="type">
                         <option value="restaurant">Restaurant</option>
                         <option value="cafe">Cafe</option>
@@ -45,12 +60,20 @@
                 </div>
 
                 <div class="control-group button-group">
+                    <label class="ghost-label">Acción</label>
                     <button onclick="loadPlaces()">Buscar</button>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="results"></div>
+        <section class="results-section">
+            <div class="results-header">
+                <h2>Resultados</h2>
+                <p>Lugares encontrados alrededor del punto seleccionado.</p>
+            </div>
+
+            <div id="results"></div>
+        </section>
     </div>
 
     <script>
