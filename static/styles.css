@@ -3,130 +3,191 @@
 }
 
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
     background: #f3f4f6;
-    margin: 0;
     color: #1f2937;
 }
 
 .page {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 28px 22px 40px;
+    padding: 28px 20px 40px;
 }
 
 .hero {
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
-h1 {
-    margin: 0 0 10px;
+.hero-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    margin: 0 0 8px;
     font-size: 2rem;
-    color: #1f2937;
+    color: #111827;
 }
 
-p {
-    margin-top: 0;
-    color: #4b5563;
+.hero-text {
+    margin: 0;
+    color: #6b7280;
+    max-width: 780px;
+    line-height: 1.5;
 }
 
 .map-section {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 #map {
     width: 100%;
-    height: 460px;
-    border-radius: 16px;
+    height: 480px;
+    border-radius: 18px;
     overflow: hidden;
     border: 1px solid #dbe3ea;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
 }
 
-.form-box {
+.form-box,
+.results-section {
     background: #ffffff;
-    border-radius: 16px;
-    padding: 18px;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
     margin-bottom: 24px;
 }
 
-.selected-data {
-    margin-bottom: 14px;
+.panel-header,
+.results-header {
+    margin-bottom: 18px;
 }
 
-.selected-data p {
-    margin: 0 0 8px;
-    font-size: 15px;
+.panel-header h2,
+.results-header h2 {
+    margin: 0 0 6px;
+    font-size: 1.25rem;
+    color: #111827;
+}
+
+.panel-header p,
+.results-header p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.selected-data {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid #dbe4ee;
+    border-radius: 14px;
+    padding: 16px 18px;
+    min-height: 84px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.info-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
 }
 
 .controls-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
+    display: grid;
+    grid-template-columns: 190px 240px 160px;
+    gap: 16px;
     align-items: end;
 }
 
 .control-group {
     display: flex;
     flex-direction: column;
-    min-width: 180px;
 }
 
-.button-group {
-    justify-content: end;
-}
-
-label {
-    font-weight: bold;
-    color: #374151;
-    margin-bottom: 6px;
+.control-group label {
     font-size: 14px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 8px;
 }
 
-input[type="number"],
-select {
-    height: 40px;
-    padding: 0 10px;
-    border: 1px solid #cfd8e3;
-    border-radius: 8px;
-    font-size: 14px;
-    background: #fff;
-    outline: none;
+.ghost-label {
+    visibility: hidden;
 }
 
-input[type="number"]:focus,
-select:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-button {
-    height: 40px;
-    padding: 0 20px;
+.control-group input,
+.control-group select {
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: #ffffff;
     font-size: 15px;
-    font-weight: bold;
-    background: #2563eb;
-    color: white;
+    color: #0f172a;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.control-group input:focus,
+.control-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.button-group button {
+    width: 100%;
+    height: 46px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
 }
 
-button:hover {
-    background: #1d4ed8;
+.button-group button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(37, 99, 235, 0.28);
 }
 
-button:active {
-    transform: scale(0.98);
+.button-group button:active {
+    transform: translateY(0);
 }
 
 .message {
     padding: 16px;
     border-radius: 12px;
     font-size: 15px;
-    margin-bottom: 12px;
 }
 
 .loading {
@@ -155,12 +216,10 @@ button:active {
 
 .card {
     background: #ffffff;
-    border-radius: 14px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     border: 1px solid #e8edf2;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -178,7 +237,7 @@ button:active {
 }
 
 .card-body {
-    padding: 14px 16px 16px;
+    padding: 16px;
 }
 
 .card-body h3 {
@@ -191,49 +250,64 @@ button:active {
     margin: 6px 0;
     font-size: 0.95rem;
     color: #4b5563;
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
 .card-body a {
     color: #2563eb;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .card-body a:hover {
     text-decoration: underline;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
+    .selected-data {
+        grid-template-columns: 1fr;
+    }
+
+    .controls-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .button-group {
+        grid-column: 1 / -1;
+    }
+
     #results {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .page {
-        padding: 20px 14px 30px;
+        padding: 18px 14px 30px;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    .hero h1 {
+        font-size: 1.55rem;
     }
 
     #map {
         height: 340px;
     }
 
+    .form-box,
+    .results-section {
+        padding: 18px;
+    }
+
+    .controls-row {
+        grid-template-columns: 1fr;
+    }
+
     #results {
         grid-template-columns: 1fr;
     }
 
-    .controls-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .control-group,
-    button {
-        width: 100%;
+    .ghost-label {
+        display: none;
     }
 }
