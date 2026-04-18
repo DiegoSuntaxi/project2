@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscar lugares en mapa</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <style>
+        #map {
+            width: 100%;
+            height: 450px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+
+        .form-box {
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .card-image {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📍 Buscar lugares desde el mapa</h1>
+
+    <p>Haz clic en el mapa para elegir la ubicación.</p>
+
+    <div id="map"></div>
+
+    <div class="form-box">
+        <p><strong>Latitud seleccionada:</strong> <span id="selected-lat">No seleccionada</span></p>
+        <p><strong>Longitud seleccionada:</strong> <span id="selected-lng">No seleccionada</span></p>
+
+        <label>Radio (metros):</label>
+        <input type="number" id="radius" value="1000" />
+
+        <label>Tipo:</label>
+        <select id="type">
+            <option value="restaurant">Restaurant</option>
+            <option value="cafe">Cafe</option>
+            <option value="pharmacy">Pharmacy</option>
+            <option value="hospital">Hospital</option>
+            <option value="bank">Bank</option>
+            <option value="school">School</option>
+            <option value="store">Store</option>
+        </select>
+
+        <button onclick="loadPlaces()">Buscar</button>
+    </div>
+
+    <div id="results"></div>
+
+    <script>
+        let map;
+        let selectedLat = null;
+        let selectedLng = null;
+        let selectedMarker = null;
+
+        async function initMap() {
+            const { Map } = await google.maps.importLibrary("maps");
+            const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+            const initialCenter = { lat: -0.180653, lng: -78.467834 };
+
+            map = new Map(document.getElementById("map"), {
+                center: initialCenter,
+                zoom: 14,
+                mapId: "DEMO_MAP_ID"
+            });
+
+            map.addListener("click", (event) => {
+                selectedLat = event.latLng.lat();
+                selectedLng = event.latLng.lng();
+
+                document.getElementById("selected-lat").textContent = selectedLat.toFixed(6);
+                document.getElementById("selected-lng").textContent = selectedLng.toFixed(6);
+
+                if (selectedMarker) {
+                    selectedMarker.map = null;
+                }
+
+                selectedMarker = new AdvancedMarkerElement({
+                    map: map,
+                    position: { lat: selectedLat, lng: selectedLng },
+                    title: "Ubicación seleccionada"
+                });
+            });
+        }
+
+        async function loadPlaces() {
+            const radius = document.getElementById("radius").value;
+            const type = document.getElementById("type").value;
+            const container = document.getElementById("results");
+
+            if (selectedLat === null || selectedLng === null) {
+                alert("Primero selecciona un punto en el mapa.");
+                return;
+            }
+
+            container.innerHTML = "<p>Cargando resultados...</p>";
+
+            try {
+                const response = await fetch(
+                    `/api/restaurants?lat=${selectedLat}&lng=${selectedLng}&radius=${radius}&type=${type}`
+                );
+
+                if (!response.ok) {
+                    throw new Error("Error en la API");
+                }
+
+                const data = await response.json();
+                container.innerHTML = "";
+
+                if (!data.length) {
+                    container.innerHTML = "<p>No se encontraron resultados.</p>";
+                    return;
+                }
+
+                data.forEach(r => {
+                    container.innerHTML += `
+                        <div class="card">
+                            <img src="/static/imagen.jpg" alt="Place image" class="card-image" loading="lazy">
+                            <div class="card-body">
+                                <h3>${r.name || "Sin nombre"}</h3>
+                                <p>${r.address || ""}</p>
+                                <p>⭐ ${r.rating ?? "N/A"}</p>
+                                <p>👥 ${r.users ?? 0}</p>
+                                <p>📍
+                                    <a href="https://www.google.com/maps?q=${r.lat},${r.lng}" target="_blank">
+                                        Ver ubicación
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                console.error(error);
+                container.innerHTML = `<p style="color:red;">No se pudieron cargar los resultados.</p>`;
+            }
+        }
+    </script>
+
+    <script>
+        (g => {
+            var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window;
+            b = b[c] || (b[c] = {});
+            var d = b.maps || (b.maps = {}), r = new Set(), e = new URLSearchParams(),
+                u = () => h || (h = new Promise(async (f, n) => {
+                    await (a = m.createElement("script"));
+                    e.set("libraries", [...r] + "");
+                    for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                    e.set("callback", c + ".maps." + q);
+                    a.src = `https://maps.googleapis.com/maps/api/js?` + e;
+                    d[q] = f;
+                    a.onerror = () => h = n(Error(p + " no se pudo cargar."));
+                    a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                    m.head.append(a);
+                }));
+            d[l] ? console.warn(p + " solo carga una vez.") : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n));
+        })({
+            key: "{{ maps_api_key }}",
+            v: "weekly"
+        });
+
+        initMap();
+    </script>
+</body>
+
+</html>
