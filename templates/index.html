@@ -150,6 +150,7 @@
                             <img src="${imageUrl}" alt="Place image" class="card-image" loading="lazy">
                             <div class="card-body">
                                 <h3>${r.name || "Sin nombre"}</h3>
+                                <p>🕒 Hoy: <strong>${r.today_hours}</strong></p>
                                 <p><strong>Dirección:</strong> ${r.address || "No disponible"}</p>
                                 <p><strong>Calificación:</strong> ⭐ ${r.rating ?? "N/A"}</p>
                                 <p><strong>Usuarios:</strong> 👥 ${r.users ?? 0}</p>
