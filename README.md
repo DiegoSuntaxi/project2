@@ -80,53 +80,65 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
   <img src="Evidencias/Parte1_12.jpeg" width="500">
   
 </p>
-<h5>Interfaz web para consulta de establecimientos desde el mapa</h5>
+<h5>Codificación de la interfaz web para consulta de establecimientos desde el mapa</h5>
 <ul>
-<li>El código muestra el uso de las librerías requests y pandas para consumir un endpoint GET del API local, enviando parámetros de ubicación (latitud, longitud y radio) y realizando consultas por distintos tipos de establecimientos como restaurantes, hospitales y farmacias, con el fin de procesar posteriormente los datos obtenidos.
+<li>El código implementa una interfaz web interactiva que utiliza Google Maps para seleccionar una ubicación mediante clic y consultar establecimientos cercanos a través de un endpoint del API. Los resultados se obtienen usando fetch, se procesan dinámicamente y se muestran en tarjetas con información relevante y enlaces directos a Google Maps.
 </li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Parte2_12.jpeg" width="500">
+  <img src="Evidencias/Parte1_13.jpeg" width="500">
+  <img src="Evidencias/Parte1_14.jpeg" width="500">
+  <img src="Evidencias/Parte1_15.jpeg" width="500">
+  <img src="Evidencias/Parte1_16.jpeg" width="500">
+  
 </p>
-<h5>Consulta iterativa al API y consolidación de resultados</h5>
+<h5>Resultados visuales de búsqueda geolocalizada de establecimientos
+</h5>
 <ul>
-<li>El código realiza múltiples peticiones GET al API local para distintos tipos de establecimientos, combina los resultados en una sola estructura de datos y los organiza en un DataFrame de pandas, añadiendo además enlaces directos a Google Maps a partir de la ubicación geográfica obtenida.
+<li>La interfaz web permite seleccionar una ubicación directamente en el mapa, definir un radio de búsqueda y elegir el tipo de establecimiento. A partir de estos parámetros, la aplicación consulta el API local y muestra los resultados de forma dinámica, facilitando la exploración de lugares cercanos como bancos, farmacias o restaurantes.
 </li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Parte2_13.jpeg" width="500">
+  <img src="Evidencias/Parte1_1.jpeg" width="500">
+  <img src="Evidencias/Parte1_2.jpeg" width="500">
+  <img src="Evidencias/Parte1_3.jpeg" width="500">
+  <img src="Evidencias/Parte1_4.jpeg" width="500">
+  <img src="Evidencias/Parte1_5.jpeg" width="500">
 </p>
-<h5>Visualización final de datos enriquecidos</h5>
+<h5>Habilitación de Google Maps JavaScript API</h5>
 <ul>
-<li>La imagen muestra el DataFrame final en pandas con los establecimientos obtenidos desde el API, incluyendo campos como nombre, dirección, calificación, ubicación y un enlace directo a Google Maps, lo que facilita la visualización y consulta geográfica de los resultados.
+<li>La imagen muestra la activación de la API de Google Maps JavaScript en la consola de Google Cloud, la cual permite integrar mapas interactivos en la aplicación web. Esta configuración es fundamental para visualizar el mapa, capturar la ubicación seleccionada por el usuario y habilitar la interacción geográfica utilizada por el API del proyecto.
 </li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Parte2_14.jpeg" width="500">
+  <img src="Evidencias/Parte1_6.jpeg" width="500">
 </p>
-<h5>Exportación final de datos procesados</h5>
+<h5>Habilitación de Google Places API
+</h5>
 <ul>
-<li>La imagen muestra el DataFrame final con información enriquecida (enlaces, horarios y ubicación) y el proceso de exportación de los datos a formatos CSV y Excel, completando el flujo de extracción, procesamiento y almacenamiento de la información.
+<li>La imagen muestra la activación de la API de Google Places en la consola de Google Cloud, necesaria para obtener información detallada de establecimientos como nombre, dirección, calificación y horarios. Esta API es utilizada por el backend del proyecto para realizar búsquedas geolocalizadas y alimentar los resultados consultados desde el API y la interfaz web.
 </li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Parte2_15.jpeg" width="500">
+  <img src="Evidencias/Parte1_7.jpeg" width="500">
 </p>
-<h5>Datos finales consolidados en formato Excel</h5>
+<h5>Creación y gestión de la clave de API de Google Maps Platform
+</h5>
 <ul>
-<li>La imagen muestra el archivo Excel final que contiene los datos extraídos y procesados, organizados en columnas como nombre del establecimiento, dirección, calificación, número de usuarios, ubicación geográfica, horarios y enlaces a Google Maps, facilitando su revisión y análisis de forma tabular.
+<li>La imagen muestra la creación y administración de una clave de API en Google Cloud, utilizada para autenticar el acceso a los servicios de Google Maps y Google Places. Esta clave es esencial para que la aplicación pueda consumir las APIs habilitadas de forma segura y controlar su uso mediante restricciones configuradas.
 </li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Parte2_16.jpeg" width="500">
+  <img src="Evidencias/Parte1_8.jpeg" width="500">
 </p>
-<h5>Archivo CSV con datos procesados en formato crudo</h5>
+<h5>Consumo del API local desde la interfaz web
+</h5>
 <ul>
-<li>La imagen muestra el contenido del archivo CSV final, donde los datos de establecimientos (nombre, dirección, calificación, ubicación, horario, tipo y enlaces) aparecen consolidados en una sola fila por registro, reflejando el resultado directo de la exportación del procesamiento realizado en el proyecto.
+<li>La imagen muestra la ejecución de una consulta desde la interfaz web hacia el API local, visualizada mediante las herramientas de desarrollador del navegador. Se evidencia una petición GET exitosa (HTTP 200) al endpoint del API con parámetros de latitud, longitud, radio y tipo de lugar, confirmando la correcta comunicación entre el frontend y el backend del proyecto.
 </li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Parte2_17.jpeg" width="500">
+  <img src="Evidencias/Parte1_9.jpeg" width="500">
 </p>
 
 
