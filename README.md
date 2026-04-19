@@ -41,12 +41,13 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 
 <h3>Repositorio del proyecto</h3>
 <ul>
-  <li>Código fuente del API</li>
-  <li>README documentado</li>
-  <li>Notebook jupiter pruebas iniciales</li>
-  <li>Dockerfile funcional</li>
-  <li>Archivo CSV con los datos extraídos directamente del scraping</li>
-  <li>Archivo CSV final con los datos limpios, procesados y estructurados</li>
+  
+  <li>Código fuente del API desarrollado con FastAPI</li>
+  <li>Interfaz web basada en HTML que consume el API y permite la búsqueda de establecimientos desde un mapa interactivo</li>
+  <li>Archivos estáticos y plantillas (static/, templates/)</li>
+  <li>Archivo app.py con la lógica principal del servicio</li>
+  <li>Archivo README.md con la documentación del proyecto</li>
+  <li>Carpeta Evidencias/ con capturas o pruebas del funcionamiento</li>
   <li>Versión en formato Excel de los datos finales.</li>
   
 </ul>
@@ -61,12 +62,14 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 
 <h3>Creatividad/Dificultad</h3>
 <ul>
-  <li>La página web scrapeada permite identificar y consultar establecimientos como farmacias,restaurantes, etc. Proporcionando información relevante como nombre, dirección, horario de atención, calificación y número de usuarios. La dificultad del scraping radica en que estos datos se presentan en tarjetas con estructura variable, donde algunos campos pueden no estar disponibles o mostrarse con valores como “N/A”, lo que requirió validaciones y lógica adicional durante la extracción. Los datos obtenidos resultan de alta usabilidad, ya que facilitan el análisis de servicios disponibles por zona y pueden ser reutilizados mediante el API desarrollado o en formatos estructurados como CSV y Excel.</li>
-</li>
+  
+<li>Integración con APIs externas</li>
+<li>Procesamiento de datos</li>
+<li>Demos de Soluciones tecnologicas</li>
 </ul>
 
 <h3>Evidencia</h3>
-<h5>Scraping Tarea 2 - Ejemplo 1</h5>
+<h5>Scraping Tarea 1 </h5>
 <h5>Interfaz web para búsqueda de establecimientos mediante API
 </h5>
 <ul>
