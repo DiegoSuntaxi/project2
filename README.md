@@ -54,10 +54,13 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 
 <h3>API funcional</h3>
 <ul>
-  <li>jupyter</li>
-  <li>selenium</li>
-  <li>pandas</li>
-  <li>time</li>
+  <li>FastAPI</li>
+  <li>Uvicornli>
+  <li>Pydantic</li>
+  <li>Requests</li>
+  <li>Google Maps / Google Places API</li>
+  <li>Jinja2</li>
+  <li>Python</li>
 </ul>
 
 <h3>Creatividad/Dificultad</h3>
