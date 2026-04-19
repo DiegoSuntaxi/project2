@@ -75,12 +75,12 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 <li>El código implementa una API con FastAPI que consume la API de Google Places para buscar establecimientos cercanos según ubicación, radio y tipo de lugar. Procesa los resultados para extraer información relevante como nombre, dirección, calificación, horario actual y una imagen representativa, y expone estos datos mediante un endpoint GET y una interfaz web basada en plantillas HTML.</li>
 </ul>
 <p align="center">
+  <img src="Evidencias/Parte1_10.jpeg" width="500">
   <img src="Evidencias/Parte1_11.jpeg" width="500">
   <img src="Evidencias/Parte1_12.jpeg" width="500">
-  <img src="Evidencias/Parte1_13.jpeg" width="500">
   
 </p>
-<h5>Consumo del API para búsqueda de establecimientos por ubicación</h5>
+<h5>Interfaz web para consulta de establecimientos desde el mapa</h5>
 <ul>
 <li>El código muestra el uso de las librerías requests y pandas para consumir un endpoint GET del API local, enviando parámetros de ubicación (latitud, longitud y radio) y realizando consultas por distintos tipos de establecimientos como restaurantes, hospitales y farmacias, con el fin de procesar posteriormente los datos obtenidos.
 </li>
@@ -129,68 +129,7 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
   <img src="Evidencias/Parte2_17.jpeg" width="500">
 </p>
 
-<h5>Scraping Tarea 2 - Ejemplo 2</h5>
-<h5>Codigo API</h5>
-<ul>
-<li>El código muestra la configuración de un entorno de web scraping con Selenium, donde se utiliza un navegador automatizado para acceder a una API (http://localhost:8000). Esta integración permite consumir datos del servicio, procesarlos posteriormente y almacenarlos de forma estructurada dentro del proyecto.</li>
-</ul>
-<p align="center">
-  <img src="Evidencias/Parte2_1.jpeg" width="500">
-  
-</p>
-<h5>Extracción y estructuración de datos HTML con BeautifulSoup</h5>
-<ul>
-<li>El código procesa el contenido HTML obtenido mediante Selenium utilizando BeautifulSoup, extrae datos estructurados de cada tarjeta (nombre, horario, dirección, calificación y usuarios) y los almacena en una lista de diccionarios, que luego se imprime y sirve como base para su posterior guardado en CSV.
-</li>
-</ul>
-<p align="center">
-  <img src="Evidencias/Parte2_2.jpeg" width="500">
-</p>
-<h5>Resultados de los datos extraídos</h5>
-<ul>
-<li>La imagen muestra la salida de datos estructurados obtenidos mediante web scraping, donde se listan varios establecimientos con información como nombre, horario, dirección, calificación y número de usuarios, almacenados en una estructura tipo diccionario.
-</li>
-</ul>
-<p align="center">
-  <img src="Evidencias/Parte2_3.jpeg" width="500">
-</p>
-<h5>Tabla de datos procesados</h5>
-<ul>
-<li>La imagen muestra los datos extraídos y procesados convertidos en un DataFrame de pandas, donde se organizan campos como nombre, horario, dirección, calificación y número de usuarios, facilitando su visualización y posterior exportación a formatos como CSV o Excel.
-</li>
-</ul>
-<p align="center">
-  <img src="Evidencias/Parte2_4.jpeg" width="500">
-</p>
-<h5>Generación y vista previa del archivo CSV</h5>
-<ul>
-<li>La imagen muestra la exportación de los datos procesados a un archivo CSV, junto con una vista previa del contenido generado, confirmando que la información extraída fue correctamente estructurada y guardada para su uso final.
-</li>
-</ul>
-<p align="center">
-  <img src="Evidencias/Parte2_5.jpeg" width="500">
-</p>
-<h5>Guardado final de datos en CSV</h5>
-<ul>
-<li>La imagen muestra la exportación final de los datos extraídos a un archivo CSV (lugares_scrapeados.csv), utilizando pandas, y el cierre correcto del navegador automatizado, dando por finalizado el proceso de web scraping.
-</li>
-</ul>
-<p align="center">
-  <img src="Evidencias/Parte2_6.jpeg" width="500">
-</p>
-<h5>Contenido del archivo CSV generado</h5>
-<ul>
-<li>La La imagen muestra el contenido del archivo CSV generado, donde se almacenan los datos finales obtenidos del scraping, organizados por columnas como nombre, horario, dirección, calificación y número de usuarios, listos para su uso y análisis.
-</li>
-</ul>
-<p align="center">
-  <img src="Evidencias/Parte2_7.jpeg" width="500">
-</p>
-<h5>historial de commits del repositorio en GitHub</h5>
 
-<p align="center">
-  <img src="Evidencias/Parte2_8.png" width="500">
-</p>
 <h3>Comentario</h3>
 <p>
 El proyecto abarcó la extracción, limpieza y almacenamiento de datos mediante web scraping, integrando una API local y utilizando GitHub para el control de versiones y el trabajo colaborativo, siguiendo un flujo de desarrollo ordenado y reproducible.
