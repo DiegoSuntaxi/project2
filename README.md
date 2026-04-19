@@ -69,14 +69,15 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 </ul>
 
 <h3>Evidencia</h3>
-<h5>Scraping Tarea 1 </h5>
-<h5>Interfaz web para búsqueda de establecimientos mediante API
-</h5>
+<h5>Construcción del API </h5>
+<h5>API de búsqueda geolocalizada</h5>
 <ul>
-<li>La imagen muestra una interfaz web interactiva que permite buscar establecimientos como hospitales, farmacias o restaurantes a partir de una ubicación geográfica (latitud, longitud y radio). La aplicación consume un endpoint GET de la API desarrollada, ejecutada en entorno local, y devuelve los resultados de forma dinámica según los parámetros seleccionados por el usuario.</li>
+<li>El código implementa una API con FastAPI que consume la API de Google Places para buscar establecimientos cercanos según ubicación, radio y tipo de lugar. Procesa los resultados para extraer información relevante como nombre, dirección, calificación, horario actual y una imagen representativa, y expone estos datos mediante un endpoint GET y una interfaz web basada en plantillas HTML.</li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Parte2_11.jpeg" width="500">
+  <img src="Evidencias/Parte1_11.jpeg" width="500">
+  <img src="Evidencias/Parte1_12.jpeg" width="500">
+  <img src="Evidencias/Parte1_13.jpeg" width="500">
   
 </p>
 <h5>Consumo del API para búsqueda de establecimientos por ubicación</h5>
