@@ -143,8 +143,20 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 <p align="center">
   <img src="Evidencias/Parte1_9.jpeg" width="500">
 </p>
-<h5>Historial de commits y control de versiones del proyecto
+<h5>Web scraping y exportación de datos
+</h5>
+<ul>
+<li>El código implementa un proceso de web scraping con Selenium y BeautifulSoup para extraer información de establecimientos desde una interfaz web dinámica. Los datos obtenidos se procesan y estructuran con pandas en un DataFrame y finalmente se exportan a formatos CSV y Excel, permitiendo su almacenamiento y análisis posterior.
+</li>
+</ul>
+<p align="center">
+  <img src="Evidencias/Parte1_17" width="500">
+  <img src="Evidencias/Parte1_18" width="500">
+  <img src="Evidencias/Parte1_19" width="500">
+</p>
 
+
+<h5>Historial de commits y control de versiones del proyecto
 </h5>
 <ul>
 <li>La imagen muestra la ejecución de una consulta desde la interfaz web hacia el API local, visualizada mediante las herramientas de desarrollador del navegador. Se evidencia una petición GET exitosa (HTTP 200) al endpoint del API con parámetros de latitud, longitud, radio y tipo de lugar, confirmando la correcta comunicación entre el frontend y el backend del proyecto.
@@ -153,6 +165,8 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 <p align="center">
   <img src="Evidencias/Branch.PNG" width="500">
 </p>
+
+
 
 
 <h3>Comentario</h3>
