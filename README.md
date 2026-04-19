@@ -148,7 +148,7 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 </li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Branch.png" width="500">
+  <img src="Evidencias/Branch.PNG" width="500">
 </p>
 
 
