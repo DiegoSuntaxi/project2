@@ -140,6 +140,16 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 <p align="center">
   <img src="Evidencias/Parte1_9.jpeg" width="500">
 </p>
+<h5>Historial de commits y control de versiones del proyecto
+
+</h5>
+<ul>
+<li>La imagen muestra la ejecución de una consulta desde la interfaz web hacia el API local, visualizada mediante las herramientas de desarrollador del navegador. Se evidencia una petición GET exitosa (HTTP 200) al endpoint del API con parámetros de latitud, longitud, radio y tipo de lugar, confirmando la correcta comunicación entre el frontend y el backend del proyecto.
+</li>
+</ul>
+<p align="center">
+  <img src="Evidencias/Branch.png" width="500">
+</p>
 
 
 <h3>Comentario</h3>
