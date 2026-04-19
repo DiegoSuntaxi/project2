@@ -75,9 +75,9 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 <li>El código implementa una API con FastAPI que consume la API de Google Places para buscar establecimientos cercanos según ubicación, radio y tipo de lugar. Procesa los resultados para extraer información relevante como nombre, dirección, calificación, horario actual y una imagen representativa, y expone estos datos mediante un endpoint GET y una interfaz web basada en plantillas HTML.</li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Parte1_10.png" width="500">
-  <img src="Evidencias/Parte1_11.png" width="500">
-  <img src="Evidencias/Parte1_12.png" width="500">
+  <img src="Evidencias/Parte1_10.PNG" width="500">
+  <img src="Evidencias/Parte1_11.PNG" width="500">
+  <img src="Evidencias/Parte1_12.PNG" width="500">
   
 </p>
 <h5>Codificación de la interfaz web para consulta de establecimientos desde el mapa</h5>
@@ -86,10 +86,10 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 </li>
 </ul>
 <p align="center">
-  <img src="Evidencias/Parte1_13.png" width="500">
-  <img src="Evidencias/Parte1_14.png" width="500">
-  <img src="Evidencias/Parte1_15.png" width="500">
-  <img src="Evidencias/Parte1_16.png" width="500">
+  <img src="Evidencias/Parte1_13.PNG" width="500">
+  <img src="Evidencias/Parte1_14.PNG" width="500">
+  <img src="Evidencias/Parte1_15.PNG" width="500">
+  <img src="Evidencias/Parte1_16.PNG" width="500">
   
 </p>
 <h5>Resultados visuales de búsqueda geolocalizada de establecimientos
