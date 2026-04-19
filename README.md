@@ -154,16 +154,16 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
 
 <h3>Comentario</h3>
 <p>
-El proyecto abarcó la extracción, limpieza y almacenamiento de datos mediante web scraping, integrando una API local y utilizando GitHub para el control de versiones y el trabajo colaborativo, siguiendo un flujo de desarrollo ordenado y reproducible.
+Las imágenes incluidas documentan visualmente todo el desarrollo del proyecto, desde la configuración de las APIs de Google Maps y Google Places en Google Cloud, la creación y gestión de credenciales, hasta el funcionamiento de la interfaz web y el consumo del API local. Asimismo, se evidencian los resultados obtenidos al realizar búsquedas geolocalizadas de distintos tipos de establecimientos y el historial de commits en GitHub, lo que demuestra la correcta implementación del sistema, el uso de buenas prácticas de desarrollo y el trabajo colaborativo realizado durante el proyecto.
 </p>
 
 <h2>Conclusiones</h2>
 <ul>
-  <li>El proyecto permitió aplicar de manera práctica un flujo completo de tratamiento de datos, desde la extracción mediante web scraping hasta el almacenamiento final en formatos estructurados como CSV y Excel.</li>
-  <li>El uso de herramientas como Selenium, BeautifulSoup y pandas facilitó la automatización, limpieza y organización de los datos, mejorando su calidad y utilidad para futuros análisis.</li>
-  <li>La integración de una API funcional en entorno local demostró cómo los datos procesados pueden ser expuestos y consumidos por otros sistemas, fortaleciendo la arquitectura del proyecto.</li>
-  <li>La utilización de GitHub como sistema de control de versiones permitió un trabajo ordenado y colaborativo, evidenciando la importancia de los commits y la documentación en proyectos de desarrollo.</li>
-  <li>En conjunto, el proceso seguido refleja buenas prácticas en la gestión de datos y desarrollo de software, asegurando un trabajo reproducible, organizado y alineado con entornos reales.
+  <li>El proyecto permitió desarrollar una solución completa basada en una API funcional, integrando tecnologías como FastAPI, Google Maps API y Google Places API, logrando una búsqueda geolocalizada de establecimientos de manera eficiente y estructurada.</li>
+  <li>A través del uso de web scraping y procesamiento de datos, se obtuvo información relevante que fue limpiada, estructurada y almacenada en formatos estándar como CSV y Excel, facilitando su reutilización y análisis.</li>
+  <li>La implementación de una interfaz web interactiva mejoró la usabilidad del sistema, permitiendo al usuario seleccionar ubicaciones directamente desde un mapa y visualizar los resultados de forma clara mediante tarjetas informativas.</li>
+  <li>La correcta configuración de credenciales y habilitación de APIs en Google Cloud fue un aspecto clave para garantizar el funcionamiento seguro y estable de los servicios utilizados en el proyecto.</li>
+  <li>El uso de GitHub como sistema de control de versiones permitió evidenciar un trabajo colaborativo organizado, con historial de commits, manejo de ramas y resolución de conflictos, reflejando buenas prácticas de desarrollo de software.
 </li>
 </ul>
 <hr>
