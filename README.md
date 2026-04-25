@@ -192,18 +192,17 @@ Esto podría provocar un consumo excesivo de recursos y generar varios impactos 
 Para mitigar este riesgo, se deben validar estrictamente los parámetros recibidos, limitar rangos permitidos, implementar autenticación, aplicar rate limiting, controlar el número máximo de resultados, usar caché para consultas repetidas y registrar actividad sospechosa.
 </p>
 
-<hr>
 
 <p>
   <strong>2. ¿Cómo podría un atacante insertar contenido malicioso en la página origen para que, tras el scraping y almacenamiento en CSV, ese contenido termine ejecutándose en el navegador de los usuarios al visualizar los resultados en la interfaz web?</strong>
 </p>
 
 <p>
-Un atacante podría insertar código malicioso en la página origen que será posteriormente extraída mediante web scraping. Por ejemplo, podría publicar contenido con etiquetas HTML o JavaScript dentro de campos como nombres, comentarios, descripciones o títulos.
+Un atacante podría insertar contenido malicioso en la página origen que posteriormente será extraída mediante web scraping. Por ejemplo, podría incluir código HTML o JavaScript dentro de campos como títulos, descripciones o comentarios.
 </p>
 
 <p>
-Si el scraper extrae ese contenido y lo guarda directamente en un archivo CSV sin limpiarlo, y luego la aplicación web muestra esos datos sin escaparlos correctamente, el navegador podría interpretar ese contenido como código ejecutable. Este tipo de ataque se conoce como <b>Cross-Site Scripting almacenado</b> o <b>Stored XSS</b>.
+Si el scraper obtiene ese contenido y lo guarda directamente en un archivo CSV sin ningún tipo de validación o limpieza, y luego la aplicación web muestra esos datos tal como fueron obtenidos, el navegador podría interpretar ese contenido como código ejecutable en lugar de texto. Este tipo de ataque se conoce como <b>Cross-Site Scripting almacenado</b> (Stored XSS).
 </p>
 
 <p>
@@ -215,11 +214,11 @@ Ejemplo de contenido malicioso:
 </code></pre>
 
 <p>
-El riesgo ocurre cuando este contenido se presenta en una interfaz web usando métodos inseguros como <code>innerHTML</code>, ya que el navegador podría ejecutar el script en lugar de mostrarlo como texto.
+El problema ocurre cuando la aplicación web presenta esta información utilizando métodos inseguros (por ejemplo, insertando directamente el contenido en el HTML), lo que permite que el navegador ejecute el script.
 </p>
 
 <p>
-Las consecuencias pueden incluir robo de sesiones, redirección a sitios maliciosos, modificación visual de la página, ejecución de acciones no autorizadas o afectación a los usuarios que consulten los resultados.
+Las consecuencias pueden incluir robo de información, secuestro de sesiones, redirecciones a sitios maliciosos o ejecución de acciones no autorizadas en nombre del usuario.
 </p>
 
 <p>
@@ -227,19 +226,19 @@ Para prevenir este problema, se deben aplicar medidas como:
 </p>
 
 <ul>
-  <li>Limpiar y sanitizar los datos obtenidos durante el scraping.</li>
-  <li>Escapar caracteres especiales antes de mostrar datos en HTML.</li>
-  <li>Evitar el uso de <code>innerHTML</code> para renderizar contenido no confiable.</li>
-  <li>Usar <code>textContent</code> o mecanismos seguros de renderizado.</li>
-  <li>Validar los datos antes de guardarlos en CSV.</li>
-  <li>Implementar políticas de seguridad como Content Security Policy.</li>
+  <li>Validar y limpiar los datos obtenidos durante el scraping.</li>
+  <li>Tratar siempre los datos externos como no confiables.</li>
+  <li>Mostrar la información como texto y no como código ejecutable.</li>
+  <li>Evitar insertar directamente contenido dinámico en el HTML sin control.</li>
+  <li>Implementar políticas de seguridad en la aplicación web.</li>
 </ul>
 
 <p>
-De esta manera, aunque la página origen contenga datos maliciosos, estos serán tratados como texto y no como código ejecutable dentro de la aplicación web.
+De esta manera, aunque la página origen contenga contenido malicioso, este será tratado únicamente como texto y no se ejecutará en el navegador de los usuarios.
 </p>
 
 
+<hr>
 <h3>Comentario</h3>
 <p>
 Las imágenes incluidas documentan visualmente todo el desarrollo del proyecto, desde la configuración de las APIs de Google Maps y Google Places en Google Cloud, la creación y gestión de credenciales, hasta el funcionamiento de la interfaz web y el consumo del API local. Asimismo, se evidencian los resultados obtenidos al realizar búsquedas geolocalizadas de distintos tipos de establecimientos y el historial de commits en GitHub, lo que demuestra la correcta implementación del sistema, el uso de buenas prácticas de desarrollo y el trabajo colaborativo realizado durante el proyecto.
