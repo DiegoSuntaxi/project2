@@ -166,7 +166,78 @@ Diseñar, construir y desplegar un API funcional, aplicando buenas prácticas de
   <img src="Evidencias/Branch.PNG" width="500">
 </p>
 
+<hr>
+<h3>Preguntas trabajo final</h3>
 
+<p>
+  <strong>1. ¿Cómo podría un atacante manipular estos parámetros para forzar consultas excesivas o anómalas a la API externa, y qué impacto tendría esto en términos de costo, disponibilidad y posible bloqueo del servicio?</strong>
+</p>
+
+<p>
+Un atacante podría manipular parámetros enviados a la API, como búsquedas, coordenadas, filtros, radios de búsqueda, páginas, límites de resultados o tipos de consulta, con el objetivo de generar una gran cantidad de solicitudes hacia una API externa. Por ejemplo, podría enviar valores muy amplios, repetir peticiones automáticamente o modificar parámetros para consultar zonas muy grandes o con demasiados resultados.
+</p>
+
+<p>
+Esto podría provocar un consumo excesivo de recursos y generar varios impactos negativos:
+</p>
+
+<ul>
+  <li><b>Costo:</b> si la API externa cobra por número de consultas, el uso abusivo puede generar cargos elevados.</li>
+  <li><b>Disponibilidad:</b> el servidor puede saturarse por exceso de solicitudes, afectando a los usuarios legítimos.</li>
+  <li><b>Bloqueo del servicio:</b> la API externa puede detectar comportamiento anómalo y bloquear la clave API o la IP del servidor.</li>
+  <li><b>Rendimiento:</b> las respuestas pueden volverse lentas o fallar por sobrecarga.</li>
+</ul>
+
+<p>
+Para mitigar este riesgo, se deben validar estrictamente los parámetros recibidos, limitar rangos permitidos, implementar autenticación, aplicar rate limiting, controlar el número máximo de resultados, usar caché para consultas repetidas y registrar actividad sospechosa.
+</p>
+
+<hr>
+
+<p>
+  <strong>2. ¿Cómo podría un atacante insertar contenido malicioso en la página origen para que, tras el scraping y almacenamiento en CSV, ese contenido termine ejecutándose en el navegador de los usuarios al visualizar los resultados en la interfaz web?</strong>
+</p>
+
+<p>
+Un atacante podría insertar código malicioso en la página origen que será posteriormente extraída mediante web scraping. Por ejemplo, podría publicar contenido con etiquetas HTML o JavaScript dentro de campos como nombres, comentarios, descripciones o títulos.
+</p>
+
+<p>
+Si el scraper extrae ese contenido y lo guarda directamente en un archivo CSV sin limpiarlo, y luego la aplicación web muestra esos datos sin escaparlos correctamente, el navegador podría interpretar ese contenido como código ejecutable. Este tipo de ataque se conoce como <b>Cross-Site Scripting almacenado</b> o <b>Stored XSS</b>.
+</p>
+
+<p>
+Ejemplo de contenido malicioso:
+</p>
+
+<pre><code class="language-html">
+&lt;script&gt;alert("Ataque XSS")&lt;/script&gt;
+</code></pre>
+
+<p>
+El riesgo ocurre cuando este contenido se presenta en una interfaz web usando métodos inseguros como <code>innerHTML</code>, ya que el navegador podría ejecutar el script en lugar de mostrarlo como texto.
+</p>
+
+<p>
+Las consecuencias pueden incluir robo de sesiones, redirección a sitios maliciosos, modificación visual de la página, ejecución de acciones no autorizadas o afectación a los usuarios que consulten los resultados.
+</p>
+
+<p>
+Para prevenir este problema, se deben aplicar medidas como:
+</p>
+
+<ul>
+  <li>Limpiar y sanitizar los datos obtenidos durante el scraping.</li>
+  <li>Escapar caracteres especiales antes de mostrar datos en HTML.</li>
+  <li>Evitar el uso de <code>innerHTML</code> para renderizar contenido no confiable.</li>
+  <li>Usar <code>textContent</code> o mecanismos seguros de renderizado.</li>
+  <li>Validar los datos antes de guardarlos en CSV.</li>
+  <li>Implementar políticas de seguridad como Content Security Policy.</li>
+</ul>
+
+<p>
+De esta manera, aunque la página origen contenga datos maliciosos, estos serán tratados como texto y no como código ejecutable dentro de la aplicación web.
+</p>
 
 
 <h3>Comentario</h3>
